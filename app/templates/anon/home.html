@@ -1,0 +1,26 @@
+
+<div class="container-fluid home" >
+
+          <header>
+              <center><h1>Todo List</h1></center>
+          </header>
+        <section ng-controller="todoCtrl">
+            <center><form id="todo-form" ng-submit="addTodo()">
+                <input id="new-todo" placeholder="Que dois-je faire ?" ng-model="newTodo" />
+            </form></center>
+            <article ng-show="todos.length">
+                <center><ul id="todo-list">
+                    <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
+                        <div class="view">
+                            <input class="mark" type="checkbox" ng-model="todo.completed" />
+                            <span>{{todo.title}}</span>
+                            <span class="close" ng-click="removeTodo(todo)">x</span>
+                        </div>
+                    </li>
+                </ul></center>
+                <center><input id="mark-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)" /></center>
+                <center><label class="btn btn-info" for="mark-all">Tout cocher</label></center>
+                <center><button class="btn btn-danger" ng-click="clearCompletedTodos()">Supprimer les tâches cochées</button></center>
+            </article>
+        </section>
+</div>
